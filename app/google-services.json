@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "273919854427",
+    "firebase_url": "https://progressmeter-821e1.firebaseio.com",
+    "project_id": "progressmeter-821e1",
+    "storage_bucket": "progressmeter-821e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273919854427:android:d4e70dd08865db72",
+        "android_client_info": {
+          "package_name": "com.bytebucket1111.progressmeter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "273919854427-l665km75dvc75nprjjh214h50r6id5f7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN07Q6IuE0DL2D2M3A7itTTrtlHqEZmOE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273919854427:android:29ccffb5480bc8f4",
+        "android_client_info": {
+          "package_name": "com.example.dell.progressadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "273919854427-uhb9uj401c57bm9kc42dbnl2kpjb39rf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dell.progressadmin",
+            "certificate_hash": "6c1da9a107449fa2b0fb4fee94dddbeca3e67699"
+          }
+        },
+        {
+          "client_id": "273919854427-l665km75dvc75nprjjh214h50r6id5f7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN07Q6IuE0DL2D2M3A7itTTrtlHqEZmOE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "273919854427-l665km75dvc75nprjjh214h50r6id5f7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273919854427:android:30b1c2c2f3e7e685",
+        "android_client_info": {
+          "package_name": "com.example.dell.progressmeteradmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "273919854427-qv4ul0577dusnaidl5b57n3hauh8k9qr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dell.progressmeteradmin",
+            "certificate_hash": "6c1da9a107449fa2b0fb4fee94dddbeca3e67699"
+          }
+        },
+        {
+          "client_id": "273919854427-l665km75dvc75nprjjh214h50r6id5f7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN07Q6IuE0DL2D2M3A7itTTrtlHqEZmOE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "273919854427-l665km75dvc75nprjjh214h50r6id5f7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
