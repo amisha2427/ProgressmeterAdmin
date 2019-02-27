@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.example.dell.progressmeteradmin.Adapters.ContractorProjectAdapter;
 import com.example.dell.progressmeteradmin.Modal.Contractor;
 import com.example.dell.progressmeteradmin.Modal.Project;
 import com.google.firebase.database.DataSnapshot;
@@ -21,11 +23,16 @@ import java.util.List;
 public class ContractorAllProjects extends AppCompatActivity
 {
 
+    //views
     private RecyclerView rvContractorAllProjects;
+
+    //adapters
     private ContractorProjectAdapter contractorProjectAdapter;
     private LinearLayoutManager llmContractorProjects;
-    private DatabaseReference mDbRef;
     private ValueEventListener ContractorProjectListener;
+
+    //firebase related
+    private DatabaseReference mDbRef;
     List<Project> projectList = new ArrayList<>();
 
     List<String> projectIds;
@@ -47,14 +54,20 @@ public class ContractorAllProjects extends AppCompatActivity
         Gson gson = new Gson();
         Contractor contractor=gson.fromJson(details,Contractor.class);
         projectIds=contractor.getProjectIds();
-
+        contractorProjectAdapter = new ContractorProjectAdapter(projectList);
+        llmContractorProjects= new LinearLayoutManager(ContractorAllProjects.this);
+        rvContractorAllProjects.setAdapter(contractorProjectAdapter);
+        rvContractorAllProjects.setLayoutManager(llmContractorProjects);
+        rvContractorAllProjects.scrollToPosition(0);
 
     }
 
+    @Override
     public void onStart() {
 
         super.onStart();
         projectList.clear();
+        Log.d("hello", "onStart: ");
         ContractorProjectListener = new ValueEventListener()
         {
             @Override
@@ -62,6 +75,7 @@ public class ContractorAllProjects extends AppCompatActivity
             {
                 Project project = dataSnapshot.getValue(Project.class);
                 projectList.add(project);
+                contractorProjectAdapter.notifyDataSetChanged();
 
             }
 
@@ -83,6 +97,7 @@ public class ContractorAllProjects extends AppCompatActivity
         rvContractorAllProjects.scrollToPosition(0);
 
     }
+    @Override
     public void onStop() {
 
         super.onStop();

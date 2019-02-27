@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent contactorsActivity = new Intent(MainActivity.this,ContractorsActivity.class);
-                startActivity(contactorsActivity);
+                Intent contractorsActivity = new Intent(MainActivity.this,ContractorsActivity.class);
+                startActivity(contractorsActivity);
             }
         });
 

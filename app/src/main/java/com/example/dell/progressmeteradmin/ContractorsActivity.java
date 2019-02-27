@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Adapter;
 import android.widget.Toast;
 
+import com.example.dell.progressmeteradmin.Adapters.ContractorListAdapter;
 import com.example.dell.progressmeteradmin.Modal.Contractor;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
