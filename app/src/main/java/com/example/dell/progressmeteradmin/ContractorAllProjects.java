@@ -35,6 +35,7 @@ public class ContractorAllProjects extends AppCompatActivity
     private DatabaseReference mDbRef;
     List<Project> projectList = new ArrayList<>();
 
+    //lists
     List<String> projectIds;
 
     @Override
@@ -90,11 +91,7 @@ public class ContractorAllProjects extends AppCompatActivity
         {
             mDbRef.child(projectIds.get(i)).addValueEventListener(ContractorProjectListener);
         }
-        contractorProjectAdapter = new ContractorProjectAdapter(projectList);
-        llmContractorProjects= new LinearLayoutManager(ContractorAllProjects.this);
-        rvContractorAllProjects.setAdapter(contractorProjectAdapter);
-        rvContractorAllProjects.setLayoutManager(llmContractorProjects);
-        rvContractorAllProjects.scrollToPosition(0);
+
 
     }
     @Override
