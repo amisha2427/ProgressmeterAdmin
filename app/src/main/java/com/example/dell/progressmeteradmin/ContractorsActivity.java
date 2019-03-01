@@ -1,10 +1,9 @@
 package com.example.dell.progressmeteradmin;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Adapter;
 import android.widget.Toast;
 
 import com.example.dell.progressmeteradmin.Adapters.ContractorListAdapter;
@@ -16,71 +15,65 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ContractorsActivity extends AppCompatActivity {
 
+    //views
     private RecyclerView rvContractor;
+
+    //adapters
     private LinearLayoutManager llmContractor;
-    private DatabaseReference mDbReference;
-    private ValueEventListener contractorListener;
     private ContractorListAdapter contractorListAdapter;
+
+    //firebase
+    private DatabaseReference mDbReference;
+
+    //lists
     List<Contractor> contractorList = new ArrayList<>();
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contractors);
+        //initalize views
+        intialize();
 
-        rvContractor = findViewById(R.id.rv_contractor);
-        mDbReference = FirebaseDatabase.getInstance().getReference().child("Contractors");
-
+        //fetch the list of contractors and put it into the adapter
+        fetchContractors();
 
 
     }
 
-    public void onStart() {
+    private void intialize() {
+        rvContractor = findViewById(R.id.rv_contractor);
+        mDbReference = FirebaseDatabase.getInstance().getReference().child("Contractors");
+    }
 
-        super.onStart();
+    private void fetchContractors() {
         contractorList.clear();
-        ValueEventListener contractorListener = new ValueEventListener()
-        {
+        mDbReference.addValueEventListener(new ValueEventListener() {
+
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren())
-                {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Contractor contractor = dataSnapshot1.getValue(Contractor.class);
-                    contractorList.add(contractor);
+                    contractorList.add(0, contractor);
                 }
                 contractorListAdapter = new ContractorListAdapter(contractorList);
                 llmContractor = new LinearLayoutManager(ContractorsActivity.this);
-
                 rvContractor.setAdapter(contractorListAdapter);
                 rvContractor.setLayoutManager(llmContractor);
                 rvContractor.scrollToPosition(0);
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError)
-            {
-                String error= databaseError.toException().toString();
-                Toast.makeText(ContractorsActivity.this,"Error:- "+error,Toast.LENGTH_LONG).show();
+            public void onCancelled(DatabaseError databaseError) {
+                String error = databaseError.toException().toString();
+                Toast.makeText(ContractorsActivity.this, "Error:- " + error, Toast.LENGTH_LONG).show();
             }
-
-        };
-        mDbReference.addValueEventListener(contractorListener);
-
+        });
     }
-    public void onStop() {
 
-        super.onStop();
-        if(contractorListener!=null)
-        {
-            mDbReference.removeEventListener(contractorListener);
-        }
-    }
 }

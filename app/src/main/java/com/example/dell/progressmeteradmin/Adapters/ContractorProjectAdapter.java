@@ -15,8 +15,6 @@ import java.util.List;
 public class ContractorProjectAdapter extends RecyclerView.Adapter<ContractorProjectAdapter.ContractorProjectViewHolder> {
 
     List<Project> contractorProjectList;
-    LayoutInflater inflater;
-
     public ContractorProjectAdapter(List<Project> Projects) {
         contractorProjectList = Projects;
     }
@@ -24,7 +22,7 @@ public class ContractorProjectAdapter extends RecyclerView.Adapter<ContractorPro
     @NonNull
     @Override
     public ContractorProjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.from(parent.getContext()).inflate(R.layout.contractors_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contractors_list, parent, false);
 
         return new ContractorProjectViewHolder(view);
     }
@@ -44,8 +42,8 @@ public class ContractorProjectAdapter extends RecyclerView.Adapter<ContractorPro
     }
 
     public class ContractorProjectViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName; // here it is "title" of project
-        TextView tvId;  // it is showing "duration" of projects
+        TextView tvName;
+        TextView tvId;
 
         public ContractorProjectViewHolder(View itemView) {
             super(itemView);

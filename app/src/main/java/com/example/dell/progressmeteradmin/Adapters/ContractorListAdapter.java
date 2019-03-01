@@ -20,7 +20,6 @@ import java.util.List;
 public class ContractorListAdapter extends RecyclerView.Adapter<ContractorListAdapter.ContractorViewHolder> {
 
     List<Contractor> contractorList;
-    LayoutInflater layoutInflater;
     Context mContext;
 
     public ContractorListAdapter(List<Contractor> contractorList) {
@@ -31,7 +30,7 @@ public class ContractorListAdapter extends RecyclerView.Adapter<ContractorListAd
     @Override
     public ContractorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext();
-        View mView = layoutInflater.from(parent.getContext()).inflate(R.layout.contractors_list, parent, false);
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.contractors_list, parent, false);
         return new ContractorViewHolder(mView);
     }
 
