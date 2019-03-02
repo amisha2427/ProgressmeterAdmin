@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContractorsActivity" />
-        <activity android:name=".ContractorAllProjects"></activity>
+        <activity android:name=".ContractorAllProjects" />
+        <activity android:name=".ShowReportActivity"></activity>
     </application>
 
 </manifest>
